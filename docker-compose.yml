@@ -1,0 +1,17 @@
+services:
+  schemaspy:
+    image: schemaspy/schemaspy:latest
+    volumes:
+      - ./output:/output
+      - ./config:/config
+    container_name: "schemaspy_local"
+    command:
+      [
+        "-configFile",
+        "./config/schemaspy.properties",
+        "-imageformat",
+        "svg",
+        "-debug",
+      ]
+    networks:
+      - default
